@@ -12,10 +12,12 @@
 ;;; item.
 
 (define (plug-in-favicon image)
+
     (script-fu-use-v3)
+
     (let ((favicon (gimp-image-duplicate image)))
         (gimp-image-undo-disable favicon)
-        (let ((base-layer (vector-ref (gimp-image-get-layers favicon) 0)))
+        (let ((base-layer (gimp-image-merge-visible-layers favicon CLIP-TO-IMAGE)))
             (let loop ((size 48))
                 (if (>= size 16)
                     (let ((new-layer (gimp-layer-copy base-layer)))
@@ -27,14 +29,13 @@
             (gimp-display-new favicon))))
 
 (script-fu-register-filter
-    "plug-in-favicon"                        ; function name
-    "Favicon"                                  ; menu label
-    "Exports a copy of the current image as \
-    a multi-size favicon."                     ; description
-    "Kirk Rader"                               ; author
-    "copyright 2026, Kirk Rader"               ; copyright notice
-    "September 24, 2026"                       ; date created
-    "sRGB"                                      ; image type that the script works on
+    "plug-in-favicon"
+    "Favicon"
+    "Exports a copy of the current image as a multi-size favicon."
+    "Kirk Rader"
+    "copyright 2026, Kirk Rader"
+    "September 24, 2026"
+    "sRGB"
     SF-IMAGE
 )
 
