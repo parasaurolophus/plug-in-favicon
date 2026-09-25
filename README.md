@@ -13,17 +13,12 @@ file.
 
 ## Usage
 
-1. Open a RGB image in [GIMP].
+1. Open any image in [GIMP].
 2. Invoke the _Image > Parasuarolophus > Favicon_ menu item.
 3. Export the newly created image to `.ico` format.
 
 The output of this plug-in will be an image with three layers. Each layer will
-be the contents of the original image's single layer scaled to 16x16, 32x32, and
-48x48 pixels, respectively.
-
-[**Warning:** this plug-in is not designed to deal with invisible layers
-gracefully. For reliable results, you should only have layers in your original
-image that you want to contribute to the final output and all of them should be
-visible.]
+be the contents of the merged layer scaled to 16x16, 32x32, and 48x48 pixels,
+respectively.
 
 [GIMP]: https://www.gimp.org
